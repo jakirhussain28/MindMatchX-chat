@@ -1,24 +1,24 @@
 .main-content {
-  flex-grow: 1;
-  padding: 2rem;
-  margin-left: 250px; /* Default margin for open sidebar */
-  transition: margin-left 0.3s ease-in-out;
-  width: calc(100% - 250px); /* Adjust width for open sidebar */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Ensure content takes full height */
+  flex-grow: 1; /* Specifies how much a flex item will grow relative to the rest of the flex items in the flex container. '1' means it will take up all available space. Possible values: number. Use case: Allowing main content to fill remaining horizontal space. */
+  padding: 2rem; /* Sets the padding area on all four sides of the main content. Possible values: length (px, em, rem), percentage (%). Use case: Adding internal spacing around content. */
+  margin-left: 250px; /* Sets the left margin of the main content, creating space for the open sidebar. Possible values: length (px, em, rem), percentage (%), auto. Use case: Preventing content from overlapping the sidebar. */
+  transition: margin-left 0.3s ease-in-out; /* Defines the transition effect for 'margin-left' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating content shift when sidebar collapses/expands. */
+  width: calc(100% - 250px); /* Sets the width of the main content, dynamically calculating it as 100% of parent minus sidebar width. Possible values: length (px, em, rem), percentage (%), calc(). Use case: Ensuring content fills remaining space next to sidebar. */
+  display: flex; /* Defines a flex container, enabling flexible box layout for its children. Possible values: flex, block, inline, none. Use case: Arranging content within the main area. */
+  flex-direction: column; /* Stacks flex items vertically from top to bottom. Possible values: row, row-reverse, column, column-reverse. Use case: Arranging content in a column. */
+  align-items: center; /* Aligns flex items along the cross axis (horizontally in a column). Possible values: flex-start, flex-end, center, baseline, stretch. Use case: Horizontally centering content within the main area. */
+  justify-content: center; /* Aligns flex items along the main axis (vertically in a column). Possible values: flex-start, flex-end, center, space-between, space-around, space-evenly. Use case: Vertically centering content within the main area. */
+  min-height: 100vh; /* Sets the minimum height of the main content to 100% of the viewport height. Possible values: length (px, em, rem), percentage (%), vw, vh. Use case: Ensuring content takes at least the full screen height. */
 }
 
 .main-content.sidebar-closed {
-  margin-left: 80px; /* Margin for collapsed sidebar */
-  width: calc(100% - 80px); /* Adjust width for collapsed sidebar */
+  margin-left: 80px; /* Sets the left margin of the main content when the sidebar is collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adjusting content position for collapsed sidebar. */
+  width: calc(100% - 80px); /* Sets the width of the main content, dynamically calculating it as 100% of parent minus collapsed sidebar width. Possible values: length (px, em, rem), percentage (%), calc(). Use case: Ensuring content fills remaining space next to collapsed sidebar. */
 }
 
 /* Ensure content within main-content is centered */
 .main-content > div {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 1280px; /* Sets the maximum width of the direct child div within main-content. Possible values: length (px, em, rem), percentage (%), none. Use case: Limiting content width for readability on large screens. */
+  margin: 0 auto; /* Sets the top/bottom margin to 0 and left/right margin to 'auto', which horizontally centers the block element. Possible values: length (px, em, rem), percentage (%), auto. Use case: Centering content horizontally. */
+  text-align: center; /* Aligns the inline content of a block element. Possible values: left, right, center, justify. Use case: Centering text within the content area. */
 }

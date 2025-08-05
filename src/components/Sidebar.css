@@ -1,177 +1,190 @@
 .sidebar {
-  width: 220px; /* Default open width */
-  min-width: 220px;
-  /* Removed: background-color: var(--surface); */
-  /* Apply the same background as the root/main content */
-  /* background:
-    radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / 8px 8px,
-    linear-gradient(to right, var(--background), #233D3D); */
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  padding: 20px 0;
-  /* box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); */
-  transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out, padding 0.3s ease-in-out;
-  position: fixed; /* Fixed position */
-  height: 100vh; /* Full height */
-  top: 0;
-  left: 0;
-  z-index: 1000; /* Ensure it's above other content */
-  border-right: 1px solid rgb(65, 60, 75); /* Subtle border */
-  border-top-right-radius: 0; /* Sharp edge */
-  border-bottom-right-radius: 0; /* Sharp edge */
-  position: relative; /* Make sidebar a positioning context for absolute children */
+  width: 220px; /* Sets the default open width of the sidebar. Possible values: length (px, em, rem), percentage (%). Use case: Defining the initial size of the sidebar. */
+  min-width: 220px; /* Sets the minimum width of the sidebar, preventing it from shrinking below this size. Possible values: length (px, em, rem), percentage (%). Use case: Ensuring a minimum size for content visibility. */
+  color: var(--text); /* Sets the text color within the sidebar using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Applying consistent text color. */
+  display: flex; /* Defines a flex container, enabling flexible box layout for its children. Possible values: flex, block, inline, none. Use case: Arranging sidebar content vertically. */
+  flex-direction: column; /* Stacks flex items vertically from top to bottom. Possible values: row, row-reverse, column, column-reverse. Use case: Arranging items in a column. */
+  padding: 20px 0; /* Sets the padding area on the top/bottom (20px) and left/right (0px) of the sidebar. Possible values: length (px, em, rem), percentage (%). Use case: Adding internal spacing. */
+  transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out, padding 0.3s ease-in-out; /* Defines the transition effect for 'width', 'min-width', and 'padding' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating sidebar collapse/expand. */
+  position: fixed; /* Positions the element relative to the viewport, remaining in the same position even when the page is scrolled. Possible values: static, relative, absolute, fixed, sticky. Use case: Keeping the sidebar visible regardless of scroll. */
+  height: 100vh; /* Sets the height of the sidebar to 100% of the viewport height. Possible values: length (px, em, rem), percentage (%), vw, vh. Use case: Making the sidebar span the full screen height. */
+  top: 0; /* Positions the element 0 pixels from the top edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Aligning the sidebar to the top of the viewport. */
+  left: 0; /* Positions the element 0 pixels from the left edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Aligning the sidebar to the left of the viewport. */
+  z-index: 1000; /* Sets the stack order of an element. Elements with a higher z-index are placed in front of elements with a lower one. Possible values: auto, integer. Use case: Ensuring the sidebar is above other content. */
+  border-right: 1px solid rgb(65, 60, 75); /* Sets the right border of the element: 1px width, solid style, and a specific RGB color. Possible values: <width> <style> <color>. Use case: Creating a visual separator for the sidebar. */
+  border-top-right-radius: 0; /* Sets the radius of the top-right corner to 0, making it sharp. Possible values: length (px, em, rem), percentage (%). Use case: Customizing corner roundness. */
+  border-bottom-right-radius: 0; /* Sets the radius of the bottom-right corner to 0, making it sharp. Possible values: length (px, em, rem), percentage (%). Use case: Customizing corner roundness. */
+  position: relative; /* Positions the element relative to its normal position. This also makes it a positioning context for absolutely positioned children. Possible values: static, relative, absolute, fixed, sticky. Use case: Allowing absolute positioning of the toggle button within the sidebar. */
 }
 
 .sidebar.collapsed {
-  width: 50px; /* Collapsed width */
-  min-width: 50px;
-  padding: 20px 0;
+  width: 50px; /* Sets the width of the sidebar when it is collapsed. Possible values: length (px, em, rem), percentage (%). Use case: Defining the collapsed size. */
+  min-width: 50px; /* Sets the minimum width of the sidebar when collapsed. Possible values: length (px, em, rem), percentage (%). Use case: Ensuring a minimum size for the collapsed state. */
+  padding: 20px 0; /* Sets the padding area on the top/bottom (20px) and left/right (0px) of the collapsed sidebar. Possible values: length (px, em, rem), percentage (%). Use case: Maintaining internal spacing in collapsed state. */
 }
 
 .sidebar-header {
-  padding: 0 20px 30px 20px;
-  text-align: center;
-  overflow: hidden; /* Hide overflow during collapse */
-  white-space: nowrap;
-  transition: padding 0.3s ease-in-out;
+  padding: 0 20px 15px 20px; /* Sets the padding for the header: top (0), right (20px), bottom (15px), left (20px). Possible values: length (px, em, rem), percentage (%). Use case: Spacing the header content. */
+  text-align: center; /* Aligns the inline content of a block element. Possible values: left, right, center, justify. Use case: Centering text within the header. */
+  overflow: hidden; /* Specifies what happens to content that overflows an element's box. 'hidden' clips the content. Possible values: visible, hidden, scroll, auto. Use case: Hiding text that overflows during collapse. */
+  white-space: nowrap; /* Specifies how white space inside an element is handled. 'nowrap' prevents text from wrapping. Possible values: normal, nowrap, pre, pre-wrap, pre-line. Use case: Keeping title on a single line. */
+  transition: padding 0.3s ease-in-out; /* Defines the transition effect for 'padding' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating padding changes during collapse. */
+  margin-bottom: 15px; /* Sets the bottom margin of the header, creating space below it. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space between header and navigation. */
+  position: relative; /* Positions the element relative to its normal position. This makes it a positioning context for its ::after pseudo-element. Possible values: static, relative, absolute, fixed, sticky. Use case: Positioning the separator line relative to the header. */
+}
+
+.sidebar-header::after { /* Creates a pseudo-element after the content of the .sidebar-header. */
+  content: ''; /* Inserts generated content. An empty string is used for purely decorative elements. Possible values: string, attr(), url(), none. Use case: Creating a visual separator line. */
+  position: absolute; /* Positions the element relative to its closest positioned ancestor. Possible values: static, relative, absolute, fixed, sticky. Use case: Placing the separator line precisely. */
+  bottom: 15px; /* Positions the element 15 pixels from the bottom edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Aligning the separator with the header's bottom padding. */
+  left: 10px; /* Positions the element 10 pixels from the left edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Creating a left margin for the separator. */
+  right: 10px; /* Positions the element 10 pixels from the right edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Creating a right margin for the separator. */
+  height: 1px; /* Sets the height of the separator line. Possible values: length (px, em, rem), percentage (%). Use case: Defining the thickness of the separator. */
+  background-color: var(--border); /* Sets the background color of the separator line using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Matching the separator color to the sidebar border. */
 }
 
 .sidebar.collapsed .sidebar-header {
-  padding: 0 10px 30px 10px;
+  padding: 0 10px 15px 10px; /* Sets the padding for the collapsed header: top (0), right (10px), bottom (15px), left (10px). Possible values: length (px, em, rem), percentage (%). Use case: Adjusting padding for collapsed state. */
+  margin-bottom: 15px; /* Sets the bottom margin of the collapsed header. Possible values: length (px, em, rem), percentage (%), auto. Use case: Maintaining space below the separator in collapsed state. */
 }
 
 .sidebar-title {
-  font-family: 'JetBrains Mono', monospace; /* Apply JetBrains Mono */
-  font-size: 1.8em;
-  font-weight: 700;
-  color: var(--primary);
-  margin: 0;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  font-family: 'JetBrains Mono', monospace; /* Specifies a prioritized list of font family names for the title. Possible values: font names, generic families. Use case: Applying a specific monospace font. */
+  font-size: 1.8em; /* Sets the size of the font for the title. Possible values: length (px, em, rem), percentage (%), keywords. Use case: Sizing the main title. */
+  font-weight: 700; /* Sets the weight (or boldness) of the font for the title. Possible values: normal, bold, bolder, lighter, 100-900. Use case: Making the title bold. */
+  color: var(--primary); /* Sets the text color of the title using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling the title with the primary brand color. */
+  margin: 0; /* Sets the margin area on all four sides of the title to zero. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing default margins from the title. */
+  opacity: 1; /* Sets the opacity level of the element (1 is fully opaque). Possible values: number (0 to 1). Use case: Making the title fully visible. */
+  transition: opacity 0.3s ease-in-out; /* Defines the transition effect for 'opacity' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly fading the title in/out. */
 }
 
 .sidebar-title-collapsed {
-  font-family: 'JetBrains Mono', monospace; /* Apply JetBrains Mono */
-  font-size: 1.8em;
-  font-weight: 700;
-  color: var(--primary);
-  margin: 0;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  font-family: 'JetBrains Mono', monospace; /* Specifies a prioritized list of font family names for the collapsed title. Possible values: font names, generic families. Use case: Applying a specific monospace font. */
+  font-size: 1.8em; /* Sets the size of the font for the collapsed title. Possible values: length (px, em, rem), percentage (%), keywords. Use case: Sizing the collapsed title. */
+  font-weight: 700; /* Sets the weight (or boldness) of the font for the collapsed title. Possible values: normal, bold, bolder, lighter, 100-900. Use case: Making the collapsed title bold. */
+  color: var(--primary); /* Sets the text color of the collapsed title using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling the collapsed title with the primary brand color. */
+  margin: 0; /* Sets the margin area on all four sides of the collapsed title to zero. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing default margins from the collapsed title. */
+  opacity: 1; /* Sets the opacity level of the element (1 is fully opaque). Possible values: number (0 to 1). Use case: Making the collapsed title fully visible. */
+  transition: opacity 0.3s ease-in-out; /* Defines the transition effect for 'opacity' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly fading the collapsed title in/out. */
 }
 
 .sidebar.collapsed .sidebar-title {
-  opacity: 0; /* Hide full title when collapsed */
-  width: 0;
-  height: 0;
-  visibility: hidden;
+  opacity: 0; /* Sets the opacity level of the full title to 0 (fully transparent) when collapsed. Possible values: number (0 to 1). Use case: Hiding the full title when sidebar is collapsed. */
+  width: 0; /* Sets the width of the full title to 0 when collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Collapsing the title's space. */
+  height: 0; /* Sets the height of the full title to 0 when collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Collapsing the title's space. */
+  visibility: hidden; /* Hides an element without removing it from the document flow. Possible values: visible, hidden, collapse. Use case: Ensuring the title is not interactable when hidden. */
 }
 
 .sidebar-nav {
-  flex-grow: 1;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  flex-grow: 1; /* Specifies how much a flex item will grow relative to the rest of the flex items in the flex container. Possible values: number. Use case: Allowing navigation to take up available vertical space. */
+  list-style: none; /* Removes the default list item markers (bullets, numbers). Possible values: none, disc, circle, square, decimal, etc. Use case: Customizing list appearance. */
+  padding: 0; /* Sets the padding area on all four sides of the navigation container to zero. Possible values: length (px, em, rem), percentage (%). Use case: Removing default padding from the navigation. */
+  margin: 0; /* Sets the margin area on all four sides of the navigation container to zero. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing default margins from the navigation. */
 }
 
 .sidebar-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; /* Removes the default list item markers (bullets, numbers) for the unordered list. Possible values: none, disc, circle, square, decimal, etc. Use case: Customizing list appearance. */
+  padding: 0; /* Sets the padding area on all four sides of the unordered list to zero. Possible values: length (px, em, rem), percentage (%). Use case: Removing default padding from the list. */
+  margin: 0; /* Sets the margin area on all four sides of the unordered list to zero. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing default margins from the list. */
+  margin-top: -10px; /* Sets a negative top margin, shifting the element upwards by 10 pixels. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adjusting vertical position of navigation items. */
 }
 
 .nav-item {
-  display: flex;
-  align-items: center;
-  padding: 12px 10px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  border-left: 4px solid transparent; /* For active state or subtle highlight */
+  display: flex; /* Defines a flex container, enabling flexible box layout for its children (icon and text). Possible values: flex, block, inline, none. Use case: Aligning icon and text horizontally. */
+  align-items: center; /* Aligns flex items along the cross axis (vertically in a row, horizontally in a column). Possible values: flex-start, flex-end, center, baseline, stretch. Use case: Vertically centering icon and text. */
+  padding: 12px 10px; /* Sets the padding for navigation items: top/bottom (12px), left/right (10px). Possible values: length (px, em, rem), percentage (%). Use case: Adding internal spacing to navigation links. */
+  color: var(--text-secondary); /* Sets the text color of navigation items using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling navigation links with a secondary text color. */
+  text-decoration: none; /* Specifies the decoration added to text. 'none' removes underlines. Possible values: none, underline, overline, line-through. Use case: Removing default link underlines. */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Defines the transition effect for 'background-color' and 'color' over 0.2 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating hover effects. */
+  border-left: 4px solid transparent; /* Sets a transparent left border, reserving space for an active state highlight. Possible values: <width> <style> <color>. Use case: Creating a placeholder for an active indicator. */
 }
 
 .nav-item:hover {
-  background-color: rgba(var(--primary-rgb), 0.1); /* Use a subtle hover effect */
-  color: var(--primary);
-  border-left-color: var(--primary);
+  background-color: rgba(var(--primary-rgb), 0.1); /* Sets a subtle background color using the primary color with 10% opacity when hovered. Possible values: color name, hex code, rgb(), hsl(), rgba(). Use case: Providing visual feedback on hover. */
+  color: var(--primary); /* Sets the text color to the primary CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Highlighting text on hover. */
+  border-left-color: var(--primary); /* Sets the left border color to the primary CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Highlighting the active/hovered item with a border. */
 }
 
 .nav-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 15px;
-  flex-shrink: 0; /* Prevent icon from shrinking */
-  transition: margin-right 0.3s ease-in-out;
+  width: 24px; /* Sets the width of the navigation icon. Possible values: length (px, em, rem), percentage (%). Use case: Sizing icons. */
+  height: 24px; /* Sets the height of the navigation icon. Possible values: length (px, em, rem), percentage (%). Use case: Sizing icons. */
+  margin-right: 15px; /* Sets the right margin of the icon, creating space between it and the text. Possible values: length (px, em, rem), percentage (%), auto. Use case: Spacing icon from text. */
+  flex-shrink: 0; /* Specifies the flex shrink factor of a flex item. '0' prevents the item from shrinking. Possible values: number. Use case: Ensuring icons maintain their size when space is limited. */
+  transition: margin-right 0.3s ease-in-out; /* Defines the transition effect for 'margin-right' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating icon margin during collapse. */
 }
 
 .sidebar.collapsed .nav-icon {
-  margin-right: 0; /* Remove margin when collapsed */
+  margin-right: 0; /* Sets the right margin of the icon to 0 when the sidebar is collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing space next to icon in collapsed state. */
 }
 
 .nav-text {
-  opacity: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+  opacity: 1; /* Sets the opacity level of the navigation text (1 is fully opaque). Possible values: number (0 to 1). Use case: Making the text fully visible. */
+  white-space: nowrap; /* Specifies how white space inside an element is handled. 'nowrap' prevents text from wrapping. Possible values: normal, nowrap, pre, pre-wrap, pre-line. Use case: Keeping navigation text on a single line. */
+  overflow: hidden; /* Specifies what happens to content that overflows an element's box. 'hidden' clips the content. Possible values: visible, hidden, scroll, auto. Use case: Hiding text that overflows during collapse. */
+  transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out; /* Defines the transition effect for 'opacity' and 'width' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly fading and collapsing text. */
 }
 
 .sidebar.collapsed .nav-text {
-  opacity: 0;
-  width: 0;
-  visibility: hidden;
+  opacity: 0; /* Sets the opacity level of the navigation text to 0 (fully transparent) when collapsed. Possible values: number (0 to 1). Use case: Hiding text when sidebar is collapsed. */
+  width: 0; /* Sets the width of the navigation text to 0 when collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Collapsing the text's space. */
+  visibility: hidden; /* Hides an element without removing it from the document flow. Possible values: visible, hidden, collapse. Use case: Ensuring text is not interactable when hidden. */
 }
 
 .sidebar-toggle {
-  position: absolute; /* Position absolutely relative to the sidebar */
-  right: -10px; /* Half of its width to place it on the border */
-  top: 50%; /* Vertically center */
-  transform: translateY(-50%); /* Adjust for true vertical centering */
-  background-color: rgb(146, 136, 169); /*White fill var(--text)
-  /* background-color: rgba(255, 255, 255, 0.2); /*White fill */
-  border: none; /* Remove border */
-  /* color: var(--primary); Icon color */
-  /* color: rgb(0,0,0); Icon color */
-  padding: 10px;
-  border-radius: 50%; /* Make it a circle */
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4px; /* Fixed width for toggle button */
-  height: 4px; /* Fixed height for toggle button */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  opacity: 0; /* Initially hidden */
-  pointer-events: none; /* Disable interactions when hidden */
-  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  z-index: 1001; /* Ensure it's above the sidebar border */
+  position: absolute; /* Positions the element relative to its closest positioned ancestor (the sidebar). Possible values: static, relative, absolute, fixed, sticky. Use case: Placing the toggle button precisely. */
+  right: -10px; /* Positions the element 10 pixels outside the right edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Placing the toggle button on the sidebar's border. */
+  top: 50%; /* Positions the element's top edge at 50% of its containing block's height. Possible values: length (px, em, rem), percentage (%), auto. Use case: Vertically centering the toggle button. */
+  transform: translateY(-50%); /* Modifies the coordinate space of the element, moving it up by 50% of its own height. Possible values: translate(<x>, <y>), rotate(<angle>), scale(<x>, <y>). Use case: Adjusting for true vertical centering after top: 50%. */
+  background-color: rgb(146, 136, 169); /* Sets the background color of the toggle button using an RGB value. Possible values: color name, hex code, rgb(), hsl(), rgba(). Use case: Styling the button's background. */
+  border: none; /* Removes all borders from the element. Possible values: <width> <style> <color>, none. Use case: Creating a borderless button. */
+  padding: 10px; /* Sets the padding area on all four sides of the toggle button. Possible values: length (px, em, rem), percentage (%). Use case: Adding internal spacing for the icon. */
+  border-radius: 50%; /* Sets the radius of the element's corners to 50%, making it a perfect circle. Possible values: length (px, em, rem), percentage (%). Use case: Creating a circular button. */
+  cursor: pointer; /* Sets the type of mouse cursor to be displayed when pointing over an element. 'pointer' indicates an interactive element. Possible values: auto, default, pointer, text, wait, help, etc. Use case: Indicating the button is clickable. */
+  display: flex; /* Defines a flex container, enabling flexible box layout for its children (the icon). Possible values: flex, block, inline, none. Use case: Centering the icon within the button. */
+  align-items: center; /* Aligns flex items along the cross axis (vertically). Possible values: flex-start, flex-end, center, baseline, stretch. Use case: Vertically centering the icon. */
+  justify-content: center; /* Aligns flex items along the main axis (horizontally). Possible values: flex-start, flex-end, center, space-between, space-around, space-evenly. Use case: Horizontally centering the icon. */
+  width: 4px; /* Sets the fixed width of the toggle button. Possible values: length (px, em, rem), percentage (%). Use case: Defining the button's size. */
+  height: 4px; /* Sets the fixed height of the toggle button. Possible values: length (px, em, rem), percentage (%). Use case: Defining the button's size. */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Applies a box shadow to the element: 0px horizontal, 4px vertical, 15px blur, with 20% opaque black color. Possible values: none, <offset-x> <offset-y> <blur-radius> <spread-radius> <color> inset. Use case: Adding subtle depth. */
+  opacity: 0; /* Sets the opacity level of the toggle button to 0 (fully transparent). Possible values: number (0 to 1). Use case: Initially hiding the button. */
+  pointer-events: none; /* Specifies whether an element can be the target of mouse events. 'none' disables interactions. Possible values: auto, none. Use case: Preventing clicks when the button is hidden. */
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Defines transition effects for multiple properties over 0.2 seconds. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating button appearance and state changes. */
+  z-index: 1001; /* Sets the stack order of an element. A higher z-index ensures it's above the sidebar border. Possible values: auto, integer. Use case: Ensuring the button is visible on top. */
 }
 
 /* Show the toggle button when the sidebar is hovered */
 .sidebar:hover .sidebar-toggle {
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  opacity: 1;
-  pointer-events: auto;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Defines transition effects for multiple properties over 0.2 seconds. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating button appearance on sidebar hover. */
+  opacity: 1; /* Sets the opacity level of the toggle button to 1 (fully opaque) when the sidebar is hovered. Possible values: number (0 to 1). Use case: Making the button visible on hover. */
+  pointer-events: auto; /* Specifies whether an element can be the target of mouse events. 'auto' enables interactions. Possible values: auto, none. Use case: Enabling clicks when the button is visible. */
 }
 
 .sidebar-toggle:hover {
-  background-color: var(--primary); /* Primary color on hover */
-  color: var(--text); /* White icon on hover */
-  transform: translateY(-50%) scale(1.05); /* Subtle scale effect on hover */
-  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); More pronounced shadow on hover */
+  background-color: var(--primary); /* Sets the background color of the toggle button to the primary CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Highlighting the button on hover. */
+  color: var(--text); /* Sets the icon color to the text CSS variable (white) when the button is hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Changing icon color on hover for contrast. */
+  transform: translateY(-50%) scale(1.05); /* Modifies the coordinate space, moving it up by 50% and scaling it slightly (1.05 times) when hovered. Possible values: translate(<x>, <y>), rotate(<angle>), scale(<x>, <y>). Use case: Providing subtle visual feedback on hover. */
+}
+
+/* Custom focus styles for accessibility */
+.sidebar-toggle:focus,
+.sidebar-toggle:focus-visible {
+  outline: none; /* Removes the default outline drawn by browsers when an element is focused. Possible values: <width> <style> <color>, none. Use case: Customizing focus styles for better aesthetics. */
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.5), 0 4px 15px rgba(0, 0, 0, 0.2); /* Applies a custom glow (3px primary color with 50% opacity) and a subtle shadow when focused. Possible values: none, <offset-x> <offset-y> <blur-radius> <spread-radius> <color> inset. Use case: Providing clear and styled focus indication for accessibility. */
+  background-color: var(--primary); /* Sets the background color to the primary CSS variable when focused. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Ensuring the button is visible and highlighted on focus. */
+  color: var(--text); /* Sets the icon color to the text CSS variable (white) when focused. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Ensuring icon contrast on focus. */
 }
 
 .toggle-icon {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease-in-out;
+  width: 24px; /* Sets the width of the toggle icon. Possible values: length (px, em, rem), percentage (%). Use case: Sizing the icon. */
+  height: 24px; /* Sets the height of the toggle icon. Possible values: length (px, em, rem), percentage (%). Use case: Sizing the icon. */
+  transition: transform 0.3s ease-in-out; /* Defines the transition effect for 'transform' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating icon rotation. */
 }
 
 .toggle-icon.closed {
-  transform: rotate(180deg); /* Rotate icon when sidebar is collapsed */
+  transform: rotate(180deg); /* Rotates the icon by 180 degrees when the sidebar is collapsed. Possible values: rotate(<angle>), scale(<x>, <y>), translate(<x>, <y>). Use case: Indicating the sidebar's collapsed state with an icon change. */
 }
 
 /* Helper for rgba from hex */
-:root {
-  --primary-rgb: 158, 127, 255; /* RGB values for #9E7FFF */
+:root { /* The :root pseudo-class selects the root element of the document (<html>). */
+  --primary-rgb: 158, 127, 255; /* Defines a custom CSS property (variable) for the RGB values of the primary color. Possible values: comma-separated numbers. Use case: Providing RGB values for use in rgba() functions. */
 }

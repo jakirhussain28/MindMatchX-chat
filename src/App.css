@@ -1,44 +1,44 @@
 /* Global styles for the app container */
 .app-container {
-  display: flex;
-  width: 100vw; /* Take full viewport width */
-  min-height: 100vh; /* Take full viewport height */
-  overflow: hidden; /* Prevent scrollbars from appearing due to fixed sidebar */
+  display: flex; /* Defines a flex container, enabling flexible box layout for its children. Possible values: flex, block, inline, none. Use case: Creating responsive layouts. */
+  width: 100vw; /* Sets the width of the element to 100% of the viewport width. Possible values: length (px, em, rem), percentage (%), vw, vh. Use case: Ensuring an element spans the full width of the screen. */
+  min-height: 100vh; /* Sets the minimum height of the element to 100% of the viewport height. Possible values: length (px, em, rem), percentage (%), vw, vh. Use case: Ensuring content takes at least the full screen height. */
+  overflow: hidden; /* Specifies what happens to content that overflows an element's box. Possible values: visible, hidden, scroll, auto. Use case: Preventing scrollbars from appearing due to fixed sidebar. */
 }
 
 /* Existing styles for logos, cards, etc. */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 6em; /* Sets the height of the element. Possible values: length (px, em, rem), percentage (%). Use case: Sizing images or elements. */
+  padding: 1.5em; /* Sets the padding area on all four sides of an element. Possible values: length (px, em, rem), percentage (%). Use case: Creating space between content and border. */
+  will-change: filter; /* Hints to browsers about what kinds of changes to expect on an element, allowing for optimization. Possible values: auto, scroll-position, contents, transform, opacity, filter, <custom-ident>. Use case: Optimizing performance for animations. */
+  transition: filter 300ms; /* Defines the transition effect for the 'filter' property over 300 milliseconds. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating property changes. */
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em var(--primary)); /* Use primary color for hover */
+  filter: drop-shadow(0 0 2em var(--primary)); /* Applies a drop shadow effect to the element when hovered. Possible values: none, drop-shadow(<offset-x> <offset-y> <blur-radius> <color>). Use case: Adding visual depth and hover feedback. */
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em var(--secondary)); /* Use secondary color for react logo hover */
+  filter: drop-shadow(0 0 2em var(--secondary)); /* Applies a drop shadow effect with the secondary color to the React logo when hovered. Possible values: none, drop-shadow(<offset-x> <offset-y> <blur-radius> <color>). Use case: Differentiating hover effects for specific elements. */
 }
 
-@keyframes logo-spin {
+@keyframes logo-spin { /* Defines a set of keyframes for an animation named 'logo-spin'. */
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Sets the initial rotation of the element. Possible values: rotate(<angle>), scale(<x>, <y>), translate(<x>, <y>). Use case: Defining the start state of a transformation animation. */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Sets the final rotation of the element. Possible values: rotate(<angle>), scale(<x>, <y>), translate(<x>, <y>). Use case: Defining the end state of a transformation animation. */
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) { /* A media query that applies styles only if the user has no preference for reduced motion. */
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 20s linear; /* Applies the 'logo-spin' animation infinitely, lasting 20 seconds with a linear timing function. Possible values: <name> <duration> <timing-function> <delay> <iteration-count> <direction> <fill-mode> <play-state>. Use case: Creating continuous background animations. */
   }
 }
 
 .card {
-  padding: 2em;
+  padding: 2em; /* Sets the padding area on all four sides of an element. Possible values: length (px, em, rem), percentage (%). Use case: Creating space around content within a card. */
 }
 
 .read-the-docs {
-  color: var(--text-secondary); /* Use text-secondary for muted text */
+  color: var(--text-secondary); /* Sets the text color using a CSS variable for muted text. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Applying consistent color themes. */
 }

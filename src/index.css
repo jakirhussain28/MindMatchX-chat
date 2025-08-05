@@ -1,79 +1,79 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+:root { /* The :root pseudo-class selects the root element of the document (<html>). */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; /* Specifies a prioritized list of font family names or generic family names. Possible values: font names (e.g., 'Arial'), generic families (e.g., sans-serif). Use case: Defining global font stack for readability. */
+  line-height: 1.5; /* Sets the height of a line box. Possible values: number, length (px, em, rem), percentage (%). Use case: Controlling vertical spacing between lines of text. */
+  font-weight: 400; /* Sets the weight (or boldness) of the font. Possible values: normal, bold, bolder, lighter, 100-900. Use case: Adjusting text boldness. */
 
-  color-scheme: dark; /* Explicitly set to dark mode */
-  color: var(--text); /* Use CSS variable for text color */
+  color-scheme: dark; /* Informs the browser about the color schemes supported by the application. Possible values: normal, light, dark, only light, only dark. Use case: Enabling automatic dark mode adjustments by the browser. */
+  color: var(--text); /* Sets the text color using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Applying consistent text color across the application. */
 
   /* Layered background: dot grain texture on top of the subtle dark gradient */
   background:
-    radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / 12px 12px, /* Further increased density of subtle white dots */
-    linear-gradient(to right,#2E233D, #233D3D); /* Use CSS variable for background */
+    radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / 12px 12px, /* Creates a radial gradient for a subtle dot pattern. Possible values: <gradient-type>(<shape> <size> at <position>, <color-stop>...). Use case: Adding texture to backgrounds. */
+    linear-gradient(to right,#2E233D, #233D3D); /* Creates a linear gradient background from left to right. Possible values: linear-gradient(<angle> | to <side-or-corner>, <color-stop>...). Use case: Creating smooth color transitions for backgrounds. */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none; /* Controls whether the browser should synthesize bold, italic, or small-caps font faces when a font family lacks them. Possible values: auto, none. Use case: Preventing browser from faking font styles. */
+  text-rendering: optimizeLegibility; /* Optimizes for legibility over speed and geometric precision. Possible values: auto, optimizeSpeed, optimizeLegibility, geometricPrecision. Use case: Improving text rendering quality. */
+  -webkit-font-smoothing: antialiased; /* (WebKit/Blink specific) Applies anti-aliasing to fonts for smoother text rendering. Possible values: auto, none, antialiased, subpixel-antialiased. Use case: Enhancing text appearance on macOS/iOS. */
+  -moz-osx-font-smoothing: grayscale; /* (Mozilla specific) Applies grayscale anti-aliasing to fonts. Possible values: auto, grayscale. Use case: Enhancing text appearance on macOS. */
 
   /* Color Palette Variables */
-  --primary: #9E7FFF;
-  --secondary: #38bdf8;
-  --accent: #f472b6;
-  --background: #171717;
-  --surface: #262626;
-  --text: #FFFFFF;
-  --text-secondary: #A3A3A3;
-  --border: #2F2F2F;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --error: #ef4444;
+  --primary: #9E7FFF; /* Defines a custom CSS property (variable) for the primary color. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --secondary: #38bdf8; /* Defines a custom CSS property (variable) for the secondary color. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --accent: #f472b6; /* Defines a custom CSS property (variable) for the accent color. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --background: #171717; /* Defines a custom CSS property (variable) for the background color. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --surface: #262626; /* Defines a custom CSS property (variable) for the surface color (e.g., card backgrounds). Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --text: #FFFFFF; /* Defines a custom CSS property (variable) for the main text color. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --text-secondary: #A3A3A3; /* Defines a custom CSS property (variable) for secondary text color. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --border: #2F2F2F; /* Defines a custom CSS property (variable) for border colors. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --success: #10b981; /* Defines a custom CSS property (variable) for success messages/elements. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --warning: #f59e0b; /* Defines a custom CSS property (variable) for warning messages/elements. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
+  --error: #ef4444; /* Defines a custom CSS property (variable) for error messages/elements. Possible values: any valid CSS color. Use case: Centralizing color definitions for easy theme management. */
 
   /* Rounded Feature Variables */
-  --border-radius-lg: 16px;
-  --border-radius-md: 8px;
-  --border-radius-sm: 4px;
+  --border-radius-lg: 16px; /* Defines a custom CSS property for a large border radius. Possible values: length (px, em, rem), percentage (%). Use case: Consistent large rounded corners. */
+  --border-radius-md: 8px; /* Defines a custom CSS property for a medium border radius. Possible values: length (px, em, rem), percentage (%). Use case: Consistent medium rounded corners. */
+  --border-radius-sm: 4px; /* Defines a custom CSS property for a small border radius. Possible values: length (px, em, rem), percentage (%). Use case: Consistent small rounded corners. */
 }
 
 a {
-  font-weight: 500;
-  color: var(--primary); /* Use primary color for links */
-  text-decoration: inherit;
+  font-weight: 500; /* Sets the weight (or boldness) of the font for links. Possible values: normal, bold, bolder, lighter, 100-900. Use case: Making links slightly bolder. */
+  color: var(--primary); /* Sets the text color of links using the primary CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling links with the primary brand color. */
+  text-decoration: inherit; /* Specifies the decoration added to text. 'inherit' means it takes the value from its parent. Possible values: none, underline, overline, line-through, inherit. Use case: Removing default underline or inheriting parent's decoration. */
 }
 a:hover {
-  color: var(--secondary); /* Use secondary color for link hover */
+  color: var(--secondary); /* Sets the text color of links to the secondary CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Providing visual feedback on link hover. */
 }
 
 body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
-  min-height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scroll during sidebar transition */
+  margin: 0; /* Sets the margin area on all four sides of an element to zero. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing default browser body margins. */
+  display: flex; /* Defines a flex container, enabling flexible box layout for its children. Possible values: flex, block, inline, none. Use case: Allowing the main app container to fill the body. */
+  min-width: 320px; /* Sets the minimum width of the element. Possible values: length (px, em, rem), percentage (%). Use case: Ensuring content is readable on small screens. */
+  min-height: 100vh; /* Sets the minimum height of the element to 100% of the viewport height. Possible values: length (px, em, rem), percentage (%), vw, vh. Use case: Ensuring the body takes at least the full screen height. */
+  overflow-x: hidden; /* Specifies what happens to content that overflows an element's box horizontally. Possible values: visible, hidden, scroll, auto. Use case: Preventing horizontal scroll during sidebar transition. */
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3.2em; /* Sets the size of the font for h1 headings. Possible values: length (px, em, rem), percentage (%), keywords (e.g., large, x-large). Use case: Sizing main headings. */
+  line-height: 1.1; /* Sets the height of a line box for h1 headings. Possible values: number, length (px, em, rem), percentage (%). Use case: Controlling vertical spacing for headings. */
 }
 
 button {
-  border-radius: var(--border-radius-md);
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--surface); /* Use surface color for buttons */
-  color: var(--text);
-  cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s;
+  border-radius: var(--border-radius-md); /* Sets the radius of the element's corners using a CSS variable. Possible values: length (px, em, rem), percentage (%). Use case: Applying consistent rounded corners to buttons. */
+  border: 1px solid transparent; /* Sets the border width, style, and color. 'transparent' makes the border invisible but reserves space. Possible values: <width> <style> <color>. Use case: Creating a placeholder border for hover effects. */
+  padding: 0.6em 1.2em; /* Sets the padding area on all four sides of an element (top/bottom, left/right). Possible values: length (px, em, rem), percentage (%). Use case: Adding internal spacing to buttons. */
+  font-size: 1em; /* Sets the size of the font for buttons. Possible values: length (px, em, rem), percentage (%), keywords. Use case: Sizing button text. */
+  font-weight: 500; /* Sets the weight (or boldness) of the font for buttons. Possible values: normal, bold, bolder, lighter, 100-900. Use case: Adjusting button text boldness. */
+  font-family: inherit; /* Specifies a prioritized list of font family names or generic family names. 'inherit' means it takes the value from its parent. Possible values: font names, generic families, inherit. Use case: Ensuring buttons use the global font. */
+  background-color: var(--surface); /* Sets the background color of the element using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling button backgrounds with a consistent surface color. */
+  color: var(--text); /* Sets the text color of buttons using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling button text with a consistent color. */
+  cursor: pointer; /* Sets the type of mouse cursor to be displayed when pointing over an element. Possible values: auto, default, pointer, text, wait, help, etc. Use case: Indicating an interactive element. */
+  transition: border-color 0.25s, background-color 0.25s; /* Defines the transition effect for 'border-color' and 'background-color' over 0.25 seconds. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating button state changes. */
 }
 button:hover {
-  border-color: var(--primary);
-  background-color: var(--surface);
+  border-color: var(--primary); /* Sets the border color to the primary CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Providing visual feedback on button hover. */
+  background-color: var(--surface); /* Sets the background color to the surface CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Maintaining background color on hover while changing border. */
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto var(--primary);
+  outline: 4px auto var(--primary); /* Draws an outline around the element when it is focused, using the primary color. Possible values: <width> <style> <color>. Use case: Providing clear focus indication for accessibility. */
 }
