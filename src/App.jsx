@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Sidebar starts open
+  // Initialize sidebar state from localStorage, default to true (open) if not found
+  const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
+    const savedState = localStorage.getItem('isSidebarOpen');
+    return savedState !== null ? JSON.parse(savedState) : true;
+  });
+
+  // Save sidebar state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('isSidebarOpen', JSON.stringify(isSidebarOpen));
+  }, [isSidebarOpen]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
