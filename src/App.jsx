@@ -25,11 +25,6 @@ function App() {
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <MainContent isSidebarOpen={isSidebarOpen}>
 
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-        </div>
       </MainContent>
     </div>
   );

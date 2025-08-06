@@ -7,7 +7,7 @@
   padding: 20px 0; /* Sets the padding area on the top/bottom (20px) and left/right (0px) of the sidebar. Possible values: length (px, em, rem), percentage (%). Use case: Adding internal spacing. */
   transition: width 0.3s ease-in-out, min-width 0.3s ease-in-out, padding 0.3s ease-in-out; /* Defines the transition effect for 'width', 'min-width', and 'padding' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating sidebar collapse/expand. */
   position: fixed; /* Positions the element relative to the viewport, remaining in the same position even when the page is scrolled. Possible values: static, relative, absolute, fixed, sticky. Use case: Keeping the sidebar visible regardless of scroll. */
-  height: 100vh; /* Sets the height of the sidebar to 100% of the viewport height. Possible values: length (px, em, rem), percentage (%), vw, vh. Use case: Making the sidebar span the full screen height. */
+  height: 100vh; /* Sets the height of the sidebar to 100% of the viewport height. Possible values: length (px, em, rem), percentage (%). Use case: Making the sidebar span the full screen height. */
   top: 0; /* Positions the element 0 pixels from the top edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Aligning the sidebar to the top of the viewport. */
   left: 0; /* Positions the element 0 pixels from the left edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Aligning the sidebar to the left of the viewport. */
   z-index: 1000; /* Sets the stack order of an element. Elements with a higher z-index are placed in front of elements with a lower one. Possible values: auto, integer. Use case: Ensuring the sidebar is above other content. */
@@ -40,7 +40,7 @@
   left: 10px; /* Positions the element 10 pixels from the left edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Creating a left margin for the separator. */
   right: 10px; /* Positions the element 10 pixels from the right edge of its containing block. Possible values: length (px, em, rem), percentage (%), auto. Use case: Creating a right margin for the separator. */
   height: 1px; /* Sets the height of the separator line. Possible values: length (px, em, rem), percentage (%). Use case: Defining the thickness of the separator. */
-  background-color: var(--border); /* Sets the background color of the separator line using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Matching the separator color to the sidebar border. */
+  background-color:  rgb(65, 60, 75); /* Sets the background color of the separator line using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Matching the separator color to the sidebar border. */
 }
 
 .sidebar.collapsed .sidebar-header {
@@ -70,7 +70,7 @@
 
 .sidebar.collapsed .sidebar-title {
   opacity: 0; /* Sets the opacity level of the full title to 0 (fully transparent) when collapsed. Possible values: number (0 to 1). Use case: Hiding the full title when sidebar is collapsed. */
-  width: 0; /* Sets the width of the full title to 0 when collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Collapsing the title's space. */
+  width: 0; /* Sets the width of the full title to 0 when collapsed. Possible values: length (px, em, rem), percentage (%). Use case: Collapsing the title's space. */
   height: 0; /* Sets the height of the full title to 0 when collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Collapsing the title's space. */
   visibility: hidden; /* Hides an element without removing it from the document flow. Possible values: visible, hidden, collapse. Use case: Ensuring the title is not interactable when hidden. */
 }
@@ -92,17 +92,20 @@
 .nav-item {
   display: flex; /* Defines a flex container, enabling flexible box layout for its children (icon and text). Possible values: flex, block, inline, none. Use case: Aligning icon and text horizontally. */
   align-items: center; /* Aligns flex items along the cross axis (vertically in a row, horizontally in a column). Possible values: flex-start, flex-end, center, baseline, stretch. Use case: Vertically centering icon and text. */
-  padding: 12px 10px; /* Sets the padding for navigation items: top/bottom (12px), left/right (10px). Possible values: length (px, em, rem), percentage (%). Use case: Adding internal spacing to navigation links. */
+  margin: 0 10px; /* Creates 10px space on left/right of the nav-item element for the rounded hover effect */
+  padding: 12px 0; /* Remove horizontal padding from base, will add on hover */
   color: var(--text-secondary); /* Sets the text color of navigation items using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling navigation links with a secondary text color. */
   text-decoration: none; /* Specifies the decoration added to text. 'none' removes underlines. Possible values: none, underline, overline, line-through. Use case: Removing default link underlines. */
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Defines the transition effect for 'background-color' and 'color' over 0.2 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating hover effects. */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-radius 0.2s ease-in-out, padding 0.2s ease-in-out; /* Defines the transition effect for 'background-color', 'color', 'border-radius', and 'padding' over 0.2 seconds with an ease-in-out timing function. Use case: Smoothly animating hover effects. */
   border-left: 4px solid transparent; /* Sets a transparent left border, reserving space for an active state highlight. Possible values: <width> <style> <color>. Use case: Creating a placeholder for an active indicator. */
 }
 
 .nav-item:hover {
-  background-color: rgba(var(--primary-rgb), 0.1); /* Sets a subtle background color using the primary color with 10% opacity when hovered. Possible values: color name, hex code, rgb(), hsl(), rgba(). Use case: Providing visual feedback on hover. */
-  color: var(--primary); /* Sets the text color to the primary CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Highlighting text on hover. */
-  border-left-color: var(--primary); /* Sets the left border color to the primary CSS variable when hovered. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Highlighting the active/hovered item with a border. */
+  background-color: rgba(73, 66, 85,0.3); /* Sets a dark grey background color when hovered, matching the screenshot. */
+  color: var(--text-secondary); /* Keeps the text color as secondary text color on hover. */
+  border-left-color: transparent; /* Removes the left border highlight on hover. */
+  border-radius: 12px; /* Applies rounded corners on hover. */
+  padding: 12px 10px; /* Restores internal padding for icon/text on hover. */
 }
 
 .nav-icon {
@@ -114,7 +117,7 @@
 }
 
 .sidebar.collapsed .nav-icon {
-  margin-right: 0; /* Sets the right margin of the icon to 0 when the sidebar is collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing space next to icon in collapsed state. */
+  margin-right: 0; /* Sets the right margin of the icon to 0 when the sidebar is collapsed. Possible values: length (px, em, rem), percentage (%). Use case: Removing space next to icon in collapsed state. */
 }
 
 .nav-text {
@@ -126,8 +129,93 @@
 
 .sidebar.collapsed .nav-text {
   opacity: 0; /* Sets the opacity level of the navigation text to 0 (fully transparent) when collapsed. Possible values: number (0 to 1). Use case: Hiding text when sidebar is collapsed. */
-  width: 0; /* Sets the width of the navigation text to 0 when collapsed. Possible values: length (px, em, rem), percentage (%), auto. Use case: Collapsing the text's space. */
+  width: 0; /* Sets the width of the navigation text to 0 when collapsed. Possible values: length (px, em, rem), percentage (%). Use case: Collapsing the text's space. */
   visibility: hidden; /* Hides an element without removing it from the document flow. Possible values: visible, hidden, collapse. Use case: Ensuring text is not interactable when hidden. */
+}
+
+.sidebar-divider {
+  height: 1px; /* Sets the height of the divider line. Possible values: length (px, em, rem), percentage (%). Use case: Defining the thickness of the separator. */
+  background-color: rgb(65, 60, 75); /* Sets the background color of the divider line. Possible values: color name, hex code, rgb(), hsl(), rgba(). Use case: Matching the divider color to the sidebar border. */
+  margin: 20px 10px; /* Sets the top/bottom margin to 20px and left/right margin to 10px. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space around the divider and aligning it. */
+  transition: margin 0.3s ease-in-out; /* Defines the transition effect for 'margin' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating margin changes during collapse. */
+}
+
+.sidebar.collapsed .sidebar-divider {
+  margin: 20px 5px; /* Adjusts the left/right margin for the collapsed state. Possible values: length (px, em, rem), percentage (%), auto. Use case: Keeping the divider centered in collapsed state. */
+}
+
+/* New styles for Sign In Section */
+.sign-in-section {
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Pushes this section to the bottom, above the toggle */
+  margin-bottom: 20px; /* Space above the toggle button */
+  flex-shrink: 0; /* Prevent shrinking */
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, padding 0.3s ease-in-out, margin 0.3s ease-in-out;
+}
+
+.sidebar.collapsed .sign-in-section {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  visibility: hidden;
+}
+
+.sign-in-text {
+  color: var(--text-secondary);
+  font-size: 0.95em;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.sign-in-button {
+  background-color: var(--surface); /* Dark background from palette */
+  color: var(--secondary); /* Light blue text from palette */
+  border: 1px solid var(--border); /* Subtle border from palette */
+  padding: 12px 20px;
+  border-radius: 12px; /* Rounded corners */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  width: calc(100% - 40px); /* Full width minus padding */
+  margin: 0 auto; /* Center the button */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sign-in-button:hover {
+  background-color: var(--primary); /* Primary color on hover */
+  color: var(--text); /* White text on hover */
+  border-color: var(--primary); /* Primary border on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+}
+
+.sign-in-button:focus,
+.sign-in-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.5), 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--primary);
+  color: var(--text);
+  border-color: var(--primary);
+}
+
+.sign-in-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--secondary); /* Icon color matches text */
+  transition: stroke 0.2s ease-in-out;
+}
+
+.sign-in-button:hover .sign-in-icon {
+  stroke: var(--text); /* Icon color changes on hover */
 }
 
 .sidebar-toggle {
