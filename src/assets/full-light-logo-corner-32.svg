@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(0.0287158,0,0,0.0287158,-92.8285,-49.9027)">
+<svg width="100%" height="100%" viewBox="0 0 172 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.0257028,0,0,0.0257028,-21.6146,-45.6731)">
         <g>
+            <g transform="matrix(1,0,0,1,771.661,2786.84)">
+                <g transform="matrix(1095,0,0,1095,2554.11,0)">
+                </g>
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:1095px;fill:white;">Mind</text>
+            </g>
+            <g transform="matrix(1,0,0,1,4428.85,2784.7)">
+                <g transform="matrix(1095,0,0,1095,3163.63,0)">
+                </g>
+                <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:1095px;fill:white;">Match</text>
+            </g>
             <rect x="3520.82" y="2025.97" width="249" height="249" style="fill:rgb(0,145,147);"/>
             <rect x="3769.82" y="2274.97" width="249" height="249" style="fill:rgb(0,145,147);"/>
             <rect x="4018.82" y="2025.97" width="249" height="249" style="fill:rgb(0,145,147);"/>

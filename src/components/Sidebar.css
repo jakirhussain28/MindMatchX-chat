@@ -15,6 +15,7 @@
   border-top-right-radius: 0; /* Sets the radius of the top-right corner to 0, making it sharp. Possible values: length (px, em, rem), percentage (%). Use case: Customizing corner roundness. */
   border-bottom-right-radius: 0; /* Sets the radius of the bottom-right corner to 0, making it sharp. Possible values: length (px, em, rem), percentage (%). Use case: Customizing corner roundness. */
   position: relative; /* Positions the element relative to its normal position. This also makes it a positioning context for absolutely positioned children. Possible values: static, relative, absolute, fixed, sticky. Use case: Allowing absolute positioning of the toggle button within the sidebar. */
+  font-size: 15px; /* Adjusted: Reduced base font size by 2px */
 }
 
 .sidebar.collapsed {
@@ -25,12 +26,17 @@
 
 .sidebar-header {
   padding: 0 20px 15px 20px; /* Sets the padding for the header: top (0), right (20px), bottom (15px), left (20px). Possible values: length (px, em, rem), percentage (%). Use case: Spacing the header content. */
-  text-align: center; /* Aligns the inline content of a block element. Possible values: left, right, center, justify. Use case: Centering text within the header. */
+  text-align: left; /* Aligns the inline content of a block element. Possible values: left, right, center, justify. Use case: Centering text within the header. */
   overflow: hidden; /* Specifies what happens to content that overflows an element's box. 'hidden' clips the content. Possible values: visible, hidden, scroll, auto. Use case: Hiding text that overflows during collapse. */
   white-space: nowrap; /* Specifies how white space inside an element is handled. 'nowrap' prevents text from wrapping. Possible values: normal, nowrap, pre, pre-wrap, pre-line. Use case: Keeping title on a single line. */
   transition: padding 0.3s ease-in-out; /* Defines the transition effect for 'padding' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating padding changes during collapse. */
-  margin-bottom: 15px; /* Sets the bottom margin of the header, creating space below it. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space between header and navigation. */
+  margin-bottom: 10px; /* Sets the bottom margin of the header, creating space below it. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space between header and navigation. */
   position: relative; /* Positions the element relative to its normal position. This makes it a positioning context for its ::after pseudo-element. Possible values: static, relative, absolute, fixed, sticky. Use case: Positioning the separator line relative to the header. */
+}
+
+.sidebar-header img {
+  height: 32px; /* Ensures the image height is exactly 32px */
+  width: auto; /* Maintains the aspect ratio of the image */
 }
 
 .sidebar-header::after { /* Creates a pseudo-element after the content of the .sidebar-header. */
@@ -50,7 +56,7 @@
 
 .sidebar-title {
   font-family: 'JetBrains Mono', monospace; /* Specifies a prioritized list of font family names for the title. Possible values: font names, generic families. Use case: Applying a specific monospace font. */
-  font-size: 1.8em; /* Sets the size of the font for the title. Possible values: length (px, em, rem), percentage (%), keywords. Use case: Sizing the main title. */
+  font-size: 1.7em; /* Sets the size of the font for the title. Possible values: length (px, em, rem), percentage (%), keywords. Use case: Sizing the main title. */
   font-weight: 700; /* Sets the weight (or boldness) of the font for the title. Possible values: normal, bold, bolder, lighter, 100-900. Use case: Making the title bold. */
   color: var(--primary); /* Sets the text color of the title using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling the title with the primary brand color. */
   margin: 0; /* Sets the margin area on all four sides of the title to zero. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing default margins from the title. */
@@ -60,7 +66,7 @@
 
 .sidebar-title-collapsed {
   font-family: 'JetBrains Mono', monospace; /* Specifies a prioritized list of font family names for the collapsed title. Possible values: font names, generic families. Use case: Applying a specific monospace font. */
-  font-size: 1.8em; /* Sets the size of the font for the collapsed title. Possible values: length (px, em, rem), percentage (%), keywords. Use case: Sizing the collapsed title. */
+  font-size: 1.7em; /* Sets the size of the font for the collapsed title. Possible values: length (px, em, rem), percentage (%), keywords. Use case: Sizing the collapsed title. */
   font-weight: 700; /* Sets the weight (or boldness) of the font for the collapsed title. Possible values: normal, bold, bolder, lighter, 100-900. Use case: Making the collapsed title bold. */
   color: var(--primary); /* Sets the text color of the collapsed title using a CSS variable. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Styling the collapsed title with the primary brand color. */
   margin: 0; /* Sets the margin area on all four sides of the collapsed title to zero. Possible values: length (px, em, rem), percentage (%), auto. Use case: Removing default margins from the collapsed title. */
@@ -101,12 +107,29 @@
 }
 
 .nav-item:hover {
-  background-color: rgba(73, 66, 85,0.3); /* Sets a dark grey background color when hovered, matching the screenshot. */
+  background-color: rgba(73, 66, 85,0.2); /* Sets a dark grey background color when hovered, matching the screenshot. */
   color: var(--text-secondary); /* Keeps the text color as secondary text color on hover. */
   border-left-color: transparent; /* Removes the left border highlight on hover. */
-  border-radius: 12px; /* Applies rounded corners on hover. */
-  padding: 12px 10px; /* Restores internal padding for icon/text on hover. */
+  border-radius: 6px; /* Applies rounded corners on hover. */
+  padding: 12px 8px; /* Restores internal padding for icon/text on hover. */
 }
+
+/* Active state for navigation items */
+.nav-item.active {
+  /* background-color: var(--surface); Use surface color for active background */
+  /* color: var(--primary); Use primary color for active text */
+  /* border-left-color: var(--primary); Highlight with primary color on the left */
+  background-color: rgba(73, 66, 85,0.6); /* Use surface color for active background */
+  color: rgba(233, 221, 255, 0.8); /* Use primary color for active text */
+  /* border-left-color: var(--primary); Highlight with primary color on the left */
+  border-radius: 6px; /* Maintain rounded corners */
+  padding: 12px 0px; /* Consistent padding */
+}
+
+.nav-item.active .nav-icon {
+  stroke: var(--primary); /* Change icon color to primary when active */
+}
+
 
 .nav-icon {
   width: 24px; /* Sets the width of the navigation icon. Possible values: length (px, em, rem), percentage (%). Use case: Sizing icons. */
@@ -114,6 +137,8 @@
   margin-right: 15px; /* Sets the right margin of the icon, creating space between it and the text. Possible values: length (px, em, rem), percentage (%), auto. Use case: Spacing icon from text. */
   flex-shrink: 0; /* Specifies the flex shrink factor of a flex item. '0' prevents the item from shrinking. Possible values: number. Use case: Ensuring icons maintain their size when space is limited. */
   transition: margin-right 0.3s ease-in-out; /* Defines the transition effect for 'margin-right' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating icon margin during collapse. */
+  stroke: var(--text-secondary); /* Default icon color */
+  transition: stroke 0.2s ease-in-out, margin-right 0.3s ease-in-out;
 }
 
 .sidebar.collapsed .nav-icon {
@@ -166,7 +191,7 @@
 
 .sign-in-text {
   color: var(--text-secondary);
-  font-size: 0.95em;
+  font-size: 0.85em;
   margin-bottom: 15px;
   line-height: 1.4;
 }
@@ -184,7 +209,7 @@
   gap: 8px; /* Space between icon and text */
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.9em;
+  font-size: 1.0em;
   width: calc(100% - 40px); /* Full width minus padding */
   margin: 0 auto; /* Center the button */
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -257,7 +282,9 @@
 .sidebar-toggle:focus,
 .sidebar-toggle:focus-visible {
   outline: none; /* Removes the default outline drawn by browsers when an element is focused. Possible values: <width> <style> <color>, none. Use case: Customizing focus styles for better aesthetics. */
-  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.5), 0 4px 15px rgba(0, 0, 0, 0.2); /* Applies a custom glow (3px primary color with 50% opacity) and a subtle shadow when focused. Possible values: none, <offset-x> <offset-y> <blur-radius> <spread-radius> <color> inset. Use case: Providing clear and styled focus indication for accessibility. */
+  /* box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.5), 0 4px 15px rgba(0, 0, 0, 0.2); Applies a custom glow (3px primary color with 50% opacity) and a subtle shadow when focused. Possible values: none, <offset-x> <offset-y> <blur-radius> <spread-radius> <color> inset. Use case: Providing clear and styled focus indication for accessibility. */
+  /* box-shadow: none, 0 4px 15px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 0 0 0px rgba(var(--primary-rgb), 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);
   background-color: var(--primary); /* Sets the background color to the primary CSS variable when focused. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Ensuring the button is visible and highlighted on focus. */
   color: var(--text); /* Sets the icon color to the text CSS variable (white) when focused. Possible values: color name, hex code, rgb(), hsl(), var(). Use case: Ensuring icon contrast on focus. */
 }
@@ -275,4 +302,20 @@
 /* Helper for rgba from hex */
 :root { /* The :root pseudo-class selects the root element of the document (<html>). */
   --primary-rgb: 158, 127, 255; /* Defines a custom CSS property (variable) for the RGB values of the primary color. Possible values: comma-separated numbers. Use case: Providing RGB values for use in rgba() functions. */
+}
+
+/* Keyframe animation for the pulse effect on the "Coming Soon" emoji */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
