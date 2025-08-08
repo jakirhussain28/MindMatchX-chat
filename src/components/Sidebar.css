@@ -30,7 +30,7 @@
   overflow: hidden; /* Specifies what happens to content that overflows an element's box. 'hidden' clips the content. Possible values: visible, hidden, scroll, auto. Use case: Hiding text that overflows during collapse. */
   white-space: nowrap; /* Specifies how white space inside an element is handled. 'nowrap' prevents text from wrapping. Possible values: normal, nowrap, pre, pre-wrap, pre-line. Use case: Keeping title on a single line. */
   transition: padding 0.3s ease-in-out; /* Defines the transition effect for 'padding' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating padding changes during collapse. */
-  margin-bottom: 10px; /* Sets the bottom margin of the header, creating space below it. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space between header and navigation. */
+  margin-bottom: 15px; /* Sets the bottom margin of the header, creating space below it. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space between header and navigation. */
   position: relative; /* Positions the element relative to its normal position. This makes it a positioning context for its ::after pseudo-element. Possible values: static, relative, absolute, fixed, sticky. Use case: Positioning the separator line relative to the header. */
 }
 
@@ -161,12 +161,12 @@
 .sidebar-divider {
   height: 1px; /* Sets the height of the divider line. Possible values: length (px, em, rem), percentage (%). Use case: Defining the thickness of the separator. */
   background-color: rgb(65, 60, 75); /* Sets the background color of the divider line. Possible values: color name, hex code, rgb(), hsl(), rgba(). Use case: Matching the divider color to the sidebar border. */
-  margin: 20px 10px; /* Sets the top/bottom margin to 20px and left/right margin to 10px. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space around the divider and aligning it. */
+  margin: 10px 10px 20px;; /* Sets the top/bottom margin to 20px and left/right margin to 10px. Possible values: length (px, em, rem), percentage (%), auto. Use case: Adding space around the divider and aligning it. */
   transition: margin 0.3s ease-in-out; /* Defines the transition effect for 'margin' over 0.3 seconds with an ease-in-out timing function. Possible values: <property> <duration> <timing-function> <delay>. Use case: Smoothly animating margin changes during collapse. */
 }
 
 .sidebar.collapsed .sidebar-divider {
-  margin: 20px 5px; /* Adjusts the left/right margin for the collapsed state. Possible values: length (px, em, rem), percentage (%), auto. Use case: Keeping the divider centered in collapsed state. */
+  margin: 10px 5px 20px; /* Adjusts the left/right margin for the collapsed state. Possible values: length (px, em, rem), percentage (%), auto. Use case: Keeping the divider centered in collapsed state. */
 }
 
 /* New styles for Sign In Section */
